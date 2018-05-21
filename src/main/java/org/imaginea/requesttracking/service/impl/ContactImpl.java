@@ -1,7 +1,7 @@
 package org.imaginea.requesttracking.service.impl;
 
-import org.imaginea.requesttracking.dao.AccountDao;
-import org.imaginea.requesttracking.dao.ContactDao;
+import org.imaginea.requesttracking.dao.impl.AccountDaoImpl;
+import org.imaginea.requesttracking.dao.impl.ContactDaoImpl;
 import org.imaginea.requesttracking.entity.Account;
 import org.imaginea.requesttracking.entity.Contact;
 import org.imaginea.requesttracking.service.ContactService;
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 public class ContactImpl implements ContactService {
 	
 	@Autowired
-	private ContactDao contactdao;
+	private ContactDaoImpl contactdao;
 	@Autowired
-	private AccountDao accountdao;
+	private AccountDaoImpl accountdao;
 	
 	public void createContact() {
 		Account account;

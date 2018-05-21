@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -47,7 +48,18 @@ public class ServiceRequest
     @Column (name="DESCRIPTION")
     private String description;
         
-    @OneToMany(mappedBy="servicerequest", cascade = CascadeType.ALL)
+    @ManyToOne
+    private Account account;
+    
+    public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	@OneToMany(mappedBy="servicerequest", cascade = CascadeType.PERSIST)
     private Collection<Activity> activity = new ArrayList<Activity>();
    
     /**

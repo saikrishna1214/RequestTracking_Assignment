@@ -4,9 +4,11 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
-import org.imaginea.requesttracking.dao.AccountDao;
-import org.imaginea.requesttracking.dao.ActivityDao;
-import org.imaginea.requesttracking.dao.ServiceRequestDao;
+import org.apache.log4j.Logger;
+import org.hibernate.cfg.CreateKeySecondPass;
+import org.imaginea.requesttracking.dao.impl.AccountDaoImpl;
+import org.imaginea.requesttracking.dao.impl.ActivityDaoImpl;
+import org.imaginea.requesttracking.dao.impl.ServiceRequestDaoImpl;
 import org.imaginea.requesttracking.entity.Account;
 import org.imaginea.requesttracking.entity.Activity;
 import org.imaginea.requesttracking.entity.Contact;
@@ -21,15 +23,15 @@ import org.springframework.stereotype.Service;
 public class ServiceRequestImpl implements ServiceRequestService {
 
 	@Autowired
-	private ServiceRequestDao serviceRequestDao;
+	private ServiceRequestDaoImpl serviceRequestDao;
 	
 	@Autowired
-	private AccountDao accountdao;
+	private AccountDaoImpl accountdao;
 	
 	@Autowired
 	private ActivityService activityService;
 	
-	
+	private Logger log = Logger.getLogger(ServiceRequestImpl.class);
 	
 	
 	public void createServiceRequest(ApplicationContext context) {
@@ -42,12 +44,14 @@ public class ServiceRequestImpl implements ServiceRequestService {
 		serviceReq.setTitle("sample Service Request");
 		serviceReq.setStatus("Active");
 		Account account = accountdao.getAccount(1234);
+		serviceReq.setAccount(account);
+		account.getServicereq().add(serviceReq);
 		Collection<Contact> contact = account.getContact();
 		for(Contact cont : contact)
 		{
-			System.out.println(cont.getContactid());
+			log.debug(cont.getContactid());
 		}
-		System.out.println("select a primary contact");
+		log.debug("select a primary contact");
 		serviceReq.setContactid(sc.nextInt());
 		serviceRequestDao.createServiceRequest(serviceReq);
 		activityService.createActivity(serviceReq);

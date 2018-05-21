@@ -1,6 +1,6 @@
 package org.imaginea.requesttracking.service.impl;
 
-import org.imaginea.requesttracking.dao.AccountDao;
+import org.imaginea.requesttracking.dao.impl.AccountDaoImpl;
 import org.imaginea.requesttracking.entity.Account;
 import org.imaginea.requesttracking.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class AccountImpl implements AccountService {
 
 	@Autowired
-	private AccountDao accountdao;
+	private AccountDaoImpl accountdao;
 	
 	public void createAccount() {
 		

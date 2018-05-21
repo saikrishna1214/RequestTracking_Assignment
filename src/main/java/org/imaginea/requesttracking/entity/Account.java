@@ -42,6 +42,17 @@ public class Account {
 	@Column(name = "ZIPCODE")
 	private String zipcode;
 
+	@OneToMany
+	private Collection<ServiceRequest> servicereq = new ArrayList<ServiceRequest>();
+	
+	public Collection<ServiceRequest> getServicereq() {
+		return servicereq;
+	}
+
+	public void setServicereq(Collection<ServiceRequest> servicereq) {
+		this.servicereq = servicereq;
+	}
+
 	@OneToMany(mappedBy="account")
 	private Collection<Contact> contact = new ArrayList<Contact>();
 
