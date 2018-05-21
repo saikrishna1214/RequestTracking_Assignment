@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
  *
  */
 
-@Repository
+@Repository("accountDaoImpl")
 public class AccountDaoImpl implements AccountDao{
 	
 	/**
