@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  *
  */
 
-@Repository
+@Repository("servicereqimpl")
 public class ServiceRequestDaoImpl implements ServiceRequestDao {
 	
 	/**
