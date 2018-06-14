@@ -1,7 +1,6 @@
-# Customer Service Portal
+# Request Tracking Assignment
 
-Creates Accounts,contacts and ServiceRequests for a user. An employee will have details of all customers and from the details employee can create or update the service requests. one user(Customer) can have many contacts, so employee have to create a new contact if user have new contact details.
-
+Creates service reqeust by providing account and contact information and updates the database. It is an admin side project in which an employee will have access on data to create and update details. 
 
 ### Prerequisites
 
@@ -44,25 +43,15 @@ Download and Install Mysql from [here](https://www.mysql.com/downloads).
 
 * Download source code from Git repository and extract it.
 
-* Open terminal from this folder and run "mvn install" to build a war file.
+* Open terminal from this folder and run "mvn install" to build a jar file.
 
 ## Steps to run Application
 
-* Upload the war file of the application in the specified location.
+* Now run command java -jar filename.jar.
 
-* Open browser and Enter [http://localhost:8080](http://localhost:8080)
+* Options are displayed after running it.
 
-* Tomcat Home page will be displayed.
-
-* Click on teh project, you will be directed to login page of application.
-
-* Enter some random values for username and password.
-
-* Again login page is dsplayed.
-
-* Now Insert some values for username and password in Login table of your database manually.
-
-* Enter those values in Login page then you will be redirected to Home page
+* Enter required option to continue further.
 
 ## Built With
 
